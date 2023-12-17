@@ -5,18 +5,19 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
 const morgan = require("morgan");
-const bodyParser = require("body-parser");
 const router = require("./src/routes/api");
 
 // global middleware
 app.use(cors());
 app.use(morgan("dev"));
-app.use(express.json({ limit: "50mb" }));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 
-// Body Parser Implement
-app.use(bodyParser.json());
+// Body Parser Middleware Implementation
+app.use(express.json({ limit: "5mb" }));
+app.use(express.urlencoded({ limit: "5mb", extended: true }));
+app.use(express.json());
 
 // server
 const port = process.env.PORT || 8000;

@@ -37,5 +37,5 @@ const collegeSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-const collegeModel = mongoose.model("college", collegeSchema);
-module.exports = collegeModel;
+const College = mongoose.model("College", collegeSchema);
+module.exports = College;
